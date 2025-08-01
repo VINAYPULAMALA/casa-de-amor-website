@@ -1,0 +1,59 @@
+/* === Logo Sizing === */
+.logo-navbar {
+  height: 70px;
+}
+
+.logo-mobile {
+  height: 80px;
+}
+
+/* === Background Styles === */
+.header-bg {
+  background-image: url('../Images/backgrounds/Casa De Amor-46.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.header2-bg {
+  background-image: url('../Images/backgrounds/Casa De Amor-17.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 60vh;
+}
+
+.header3-bg {
+  background-image: url('../Images/backgrounds/Casa De Amor-47.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 70vh;
+}
+
+/* === Navbar Styles === */
+.navbar-fixed {
+  transition: all 0.3s ease-in-out;
+  background-color: black;
+}
+
+.transition-bg {
+  transition: background-color 0.3s ease-in-out;
+}
+
+.nav-item .active {
+  color: #FF3B30 !important;
+}
+
+.nav-item .active2 {
+  color: black !important;
+}
+
+/* === Image Components === */
+.small-img {
+  width: 100%;
+  object-fit: cover;
+  height: 100px;
+  border-radius: 4px;
+}

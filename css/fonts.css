@@ -1,0 +1,41 @@
+/* === Font Face Definitions === */
+@font-face {
+  font-family: 'OCR B';
+  src: url('../OCRB_Regular_ejmcuh.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'VICTORIA';
+    src: url('https://res.cloudinary.com/dfkd3fiut/raw/upload/v1702179215/VictoriaRegular-eZW3g_nmc4pz.ttf')
+}
+
+/* === Font Utilities === */
+.victoria {
+    font-family: 'VICTORIA' !important;
+    letter-spacing: 1px !important;
+}
+
+/* === Cooper Black for Headings, Buttons, and Links === */
+h1, h2, h3, h4, h5, a, button {
+  font-family: 'Cooper Black', serif;
+  letter-spacing: 0.5px;
+}
+
+/* === Explicit Button Font Override === */
+button,
+.btn,
+.btn-lg,
+.btn-sm {
+  font-family: 'Cooper Black', serif !important;
+  font-size: 0.7em !important;
+}
+
+/* === OCR B for Everything Else === */
+body, p, div, li, ul, ol, table, td, th, input, textarea {
+  font-family: 'OCR B', sans-serif;
+  word-spacing: 0px !important;
+  font-size: 1.1em !important;
+  line-height: 1.2em !important;
+  letter-spacing: -3px;
+  word-spacing: -3px !important;
+}

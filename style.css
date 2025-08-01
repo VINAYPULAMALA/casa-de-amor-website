@@ -48,7 +48,7 @@ body, p, div, li, ul, ol, table, td, th, input, textarea {
 }
 
 .header-bg {
-  background-image: url('Images/Casa\ De\ Amor-46.jpg');
+  background-image: url('Images/backgrounds/Casa De Amor-46.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -56,7 +56,7 @@ body, p, div, li, ul, ol, table, td, th, input, textarea {
 }
 
 .header2-bg {
-  background-image: url('Images/Casa De Amor-17.jpg');
+  background-image: url('Images/backgrounds/Casa De Amor-17.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -64,7 +64,7 @@ body, p, div, li, ul, ol, table, td, th, input, textarea {
 }
 
 .header3-bg {
-  background-image: url('Images/Casa De Amor-47.jpg');
+  background-image: url('Images/backgrounds/Casa De Amor-47.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

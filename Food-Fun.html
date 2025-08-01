@@ -8,7 +8,7 @@
   <meta name="description" content="Discover Casa de Amor's authentic Mexican food and craft cocktails in Hobart. Premium tequila, fresh ingredients, and traditional flavors since 1977.">
   <link rel="canonical" href="https://casadeamor.com.au/Food-Fun.html">
     <!-- Bootstrap CSS CDN -->
-    <link href="style.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -19,7 +19,7 @@
         <nav class="navbar navbar-expand-lg py-md-3 navbar-dark fixed-top transition-bg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html">
-                    <img src="Images/Casa de Amor - white.png" class="img-fluid" alt="Logo" style="height: 50px;">
+                    <img src="Images/logos/Casa de Amor - white.png" class="img-fluid" alt="Logo" style="height: 50px;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasExample">
@@ -59,7 +59,7 @@
         <div class="offcanvas offcanvas-start orange-bg text-white w-100" id="offcanvasExample">
             <div class="offcanvas-header">
                 <a class="navbar-brand" href="index.html">
-                    <img src="Images/Casa de Amor - Black.png" class="img-fluid" alt="Logo" style="height: 80px;">
+                    <img src="Images/logos/Casa de Amor - Black.png" class="img-fluid" alt="Logo" style="height: 80px;">
                   </a>                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
             </div>
             <div class="offcanvas-body">
@@ -218,7 +218,7 @@
         <div class="col-lg-4">
           <a href="index.html">
 
-            <img src="Images/Casa de Amor - white.png" class="img-fluid" alt="log" />
+            <img src="Images/logos/Casa de Amor - white.png" class="img-fluid" alt="log" />
         </a>        </div>
         <div class="col-lg-4">
           <h4>CONTACT DETAILS</h4>
@@ -232,18 +232,8 @@
   </section>
 
     <!-- Bootstrap JS Bundle CDN (includes Popper) -->
-    <script>
-        const navbar = document.querySelector('.navbar');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 10) {
-                navbar.classList.add('bg-black');
-            } else {
-                navbar.classList.remove('bg-black');
-            }
-        });
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/navbar.js"></script>
 
 </body>
 

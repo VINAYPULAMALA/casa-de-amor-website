@@ -10,7 +10,7 @@
   <link rel="canonical" href="https://casadeamor.com.au/">
 
   <!-- Bootstrap CSS CDN -->
-  <link href="style.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
   <link rel="preload" href="OcrB.woff2" as="font" type="font/woff2" crossorigin>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -22,7 +22,7 @@
     <nav class="navbar navbar-expand-lg py-md-3 navbar-dark fixed-top transition-bg">
       <div class="container-fluid">
         <a class="navbar-brand" href="index.html">
-          <img src="Images/Casa de Amor - white.png" class="img-fluid" alt="Casa de Amor Mexican Restaurant logo" style="height: 50px;">
+          <img src="Images/logos/Casa de Amor - white.png" class="img-fluid" alt="Casa de Amor Mexican Restaurant logo" style="height: 50px;">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
           <span class="text-white"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-justify" viewBox="0 0 16 16">
@@ -60,7 +60,7 @@
     <div class="offcanvas offcanvas-start orange-bg text-white w-100" id="offcanvasExample">
       <div class="offcanvas-header">
         <a class="navbar-brand" href="index.html">
-          <img src="Images/Casa de Amor - Black.png" class="img-fluid logo-mobile" alt="Casa de Amor Mexican Restaurant logo">
+          <img src="Images/logos/Casa de Amor - Black.png" class="img-fluid logo-mobile" alt="Casa de Amor Mexican Restaurant logo">
         </a>        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
       </div>
       <div class="offcanvas-body">
@@ -118,7 +118,7 @@
       </div>
       <div class="col-xl-3 col-lg-4 col-12">
         <div class="">
-          <img src="Images/Image2/Casa De Amor-09.jpg" class="card-img-top" alt="Monday Margaritas special at Casa de Amor">
+          <img src="Images/events/Casa De Amor-09.jpg" class="card-img-top" alt="Monday Margaritas special at Casa de Amor">
           <div class="text-center">
             <p class="pt-lg-5 victoria">Monday Margs</p>
             <h5 class="py-lg-3 fw-bold fs-2"> Half price Frozen Margs </h5>
@@ -128,7 +128,7 @@
       </div>
       <div class="col-xl-3 col-lg-4 col-12">
         <div class="">
-          <img src="Images/Casa De Amor-25.jpg" class="card-img-top" alt="Tuesday Tacos and Tequila at Casa de Amor">
+          <img src="Images/events/Casa De Amor-25.jpg" class="card-img-top" alt="Tuesday Tacos and Tequila at Casa de Amor">
           <div class="text-center">
             <p class="pt-lg-5 victoria">Tuesday</p>
             <h5 class="py-lg-3 fw-bold fs-2">Tacos and Tequila </h5>
@@ -138,7 +138,7 @@
       </div>
       <div class="col-xl-3 col-lg-4 col-12">
         <div class="">
-          <img src="Images/Casa De Amor-44.jpg" class="card-img-top" alt="Wednesday Hospo discount at Casa de Amor">
+          <img src="Images/events/Casa De Amor-44.jpg" class="card-img-top" alt="Wednesday Hospo discount at Casa de Amor">
           <div class="text-center">
             <p class="pt-lg-5 victoria">Wednesday</p>
             <h5 class="py-lg-3 fw-bold fs-2"> Get 10% off for Hospo Legends</h5>
@@ -148,7 +148,7 @@
       </div>
       <div class="col-xl-3 col-lg-4 col-12">
         <div class="">
-          <img src="Images/Casa De Amor-13.jpg" class="card-img-top" alt="Happy Hour frozen margaritas at Casa de Amor">
+          <img src="Images/events/Casa De Amor-13.jpg" class="card-img-top" alt="Happy Hour frozen margaritas at Casa de Amor">
           <div class="text-center">
             <p class="pt-lg-5 victoria">Happy Hours</p>
             <h5 class="py-lg-3 fw-bold fs-2">Frozen Margs 5pm - 7 pm </h5>
@@ -161,7 +161,7 @@
   <section class="row m-0 bg-black">
     <div class="col-lg-6 p-0">
       <img
-        src="Images/Casa De Amor-13.jpg"
+        src="Images/events/Casa De Amor-13.jpg"
         class="img-fluid w-100 h-100" alt="Casa de Amor restaurant interior and atmosphere" />
     </div>
 
@@ -188,7 +188,7 @@
       </div>
     </div>
     <div class="col-lg-6 p-0">
-      <img src="Images/Casa De Amor-7.jpg" class="img-fluid w-100 h-100" alt="Casa de Amor restaurant interior and atmosphere" />
+      <img src="Images/gallery/Casa De Amor-7.jpg" class="img-fluid w-100 h-100" alt="Casa de Amor restaurant interior and atmosphere" />
     </div>
 
 
@@ -235,7 +235,7 @@
         <div class="col-lg-4">
           <a href="index.html">
 
-            <img src="Images/Casa de Amor - white.png" class="img-fluid" alt="Casa de Amor Mexican Restaurant logo" />
+            <img src="Images/logos/Casa de Amor - white.png" class="img-fluid" alt="Casa de Amor Mexican Restaurant logo" />
         </a>        </div>
         <div class="col-lg-4">
           <h4>CONTACT DETAILS</h4>
@@ -249,34 +249,8 @@
     </div>
   </section>
 
-  <!-- Bootstrap JS Bundle CDN (includes Popper) -->
-  <script>
-    const navbar = document.querySelector('.navbar');
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 10) {
-        navbar.classList.add('bg-black');
-      } else {
-        navbar.classList.remove('bg-black');
-      }
-    });
-
-
-const questions = document.querySelectorAll('.faq-question');
-
-questions.forEach(question => {
-  question.addEventListener('click', () => {
-    question.classList.toggle('active');
-    const answer = question.nextElementSibling;
-    answer.classList.toggle('open');
-  });
-});
-
-
-  </script>
-
-
-
+  <!-- JavaScript -->
+  <script src="js/navbar.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
