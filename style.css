@@ -1,0 +1,177 @@
+/* === Font Face Definitions === */
+@font-face {
+  font-family: 'OCR B';
+  src: url('OCRB_Regular_ejmcuh.otf') format('truetype');
+}
+@font-face {
+    font-family: 'VICTORIA';
+    src: url('https://res.cloudinary.com/dfkd3fiut/raw/upload/v1702179215/VictoriaRegular-eZW3g_nmc4pz.ttf')
+}
+
+.victoria {
+    font-family: 'VICTORIA' !important;
+    letter-spacing: 1px !important;
+}
+/* === Cooper Black for Headings, Buttons, and Links === */
+h1, h2, h3, h4, h5, a, button {
+  font-family: 'Cooper Black', serif;
+  letter-spacing: 0.5px;
+}
+
+/* === Explicit Button Font Override (Optional but Stronger) === */
+button,
+.btn,
+.btn-lg,
+.btn-sm {
+  font-family: 'Cooper Black', serif !important;
+  font-size: 0.7em !important; /* or adjust as needed */
+}
+
+/* === OCR B for Everything Else === */
+body, p, div, li, ul, ol, table, td, th, input, textarea {
+  font-family: 'OCR B', sans-serif;
+  word-spacing: 0px !important;
+  font-size: 1.1em !important;
+    line-height: 1.2em !important;
+    letter-spacing: -3px;
+    word-spacing: -3px !important;
+}
+
+/* === Background Styles === */
+/* === Logo Sizing === */
+.logo-navbar {
+  height: 70px;
+}
+
+.logo-mobile {
+  height: 80px;
+}
+
+.header-bg {
+  background-image: url('Images/Casa\ De\ Amor-46.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.header2-bg {
+  background-image: url('Images/Casa De Amor-17.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 60vh;
+}
+
+.header3-bg {
+  background-image: url('Images/Casa De Amor-47.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 70vh;
+}
+
+/* === Utility & Style Classes === */
+.height-10 {
+  height: 10vh;
+}
+
+.orange {
+  color: #FF3B30 !important;
+}
+
+.orange-bg {
+  background-color: #FF3B30 !important;
+}
+
+.border-orange {
+  border-color: #FF3B30 !important;
+}
+
+.navbar-fixed {
+  transition: all 0.3s ease-in-out;
+  background-color: black;
+}
+
+.nav-item .active {
+  color: #FF3B30 !important;
+}
+
+.nav-item .active2 {
+  color: black !important;
+}
+
+.small-img {
+  width: 100%;
+  object-fit: cover;
+  height: 100px;
+  border-radius: 4px;
+}
+
+.transition-bg {
+  transition: background-color 0.3s ease-in-out;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+/* === Title === */
+.faq-title {
+  font-family: 'Cooper Black', serif;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+/* === FAQ Items === */
+.faq-item {
+  border-top: 1px solid #000;
+  padding: 1rem 0;
+}
+
+/* === Question Button === */
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: left;
+  position: relative;
+  cursor: pointer;
+  font-family: 'Cooper Black', serif;
+  padding-right: 2rem;
+}
+
+/* === Plus/Minus Icon === */
+.faq-question::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+/* === Active Minus Icon === */
+.faq-question.active::after {
+  content: '−';
+}
+
+/* === Answer Section with Smooth Transition === */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  font-family: 'OCR B', monospace;
+  font-size: 1rem;
+  color: #333;
+  padding: 0 0;
+}
+
+/* === Open State === */
+.faq-answer.open {
+  max-height: 200px; /* Adjust height as per content */
+  padding: 0.5rem 0;
+}
