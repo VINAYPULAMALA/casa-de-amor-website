@@ -2,11 +2,13 @@
 @font-face {
   font-family: 'OCR B';
   src: url('../OCRB_Regular_ejmcuh.otf') format('truetype');
+  font-display: swap;
 }
 
 @font-face {
     font-family: 'VICTORIA';
-    src: url('https://res.cloudinary.com/dfkd3fiut/raw/upload/v1702179215/VictoriaRegular-eZW3g_nmc4pz.ttf')
+    src: url('https://res.cloudinary.com/dfkd3fiut/raw/upload/v1702179215/VictoriaRegular-eZW3g_nmc4pz.ttf');
+    font-display: swap;
 }
 
 /* === Font Utilities === */
