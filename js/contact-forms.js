@@ -362,9 +362,6 @@ ${formData.description}`
     CONFIG.email.issueTemplateId : 
     CONFIG.email.enquiryTemplateId;
   
-  console.log('Sending email with parameters:', templateParams);
-  console.log('Template ID being used:', templateId);
-  console.log('Form data received:', formData);
   
   return emailjs.send(
     CONFIG.email.serviceId,
@@ -379,7 +376,6 @@ function handleFormSubmission(formType, formData) {
   
   sendEmail(formData, formType)
     .then(response => {
-      console.log(`${formType} form submitted successfully:`, response);
       hideLoading(formType);
       
       // Reset form
