@@ -1,8 +1,9 @@
 /* === Logo Sizing === */
 .logo-navbar {
-  height: 35px;
-  max-height: 35px;
-  width: auto;
+  height: 35px !important;
+  max-height: 35px !important;
+  width: auto !important;
+  max-width: 120px !important;
 }
 
 .logo-mobile {
@@ -14,15 +15,17 @@
 /* === Responsive Logo Adjustments === */
 @media (max-width: 768px) {
   .logo-navbar {
-    height: 30px;
-    max-height: 30px;
+    height: 30px !important;
+    max-height: 30px !important;
+    max-width: 100px !important;
   }
 }
 
 @media (min-width: 1200px) {
   .logo-navbar {
-    height: 40px;
-    max-height: 40px;
+    height: 40px !important;
+    max-height: 40px !important;
+    max-width: 140px !important;
   }
 }
 
