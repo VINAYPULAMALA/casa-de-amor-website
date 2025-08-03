@@ -100,7 +100,6 @@
         </div>
         
         <!-- Backdrop for mobile menu -->
-        <div class="offcanvas-backdrop fade" id="offcanvasBackdrop"></div>
     </header>
 
     <section class="row m-0 justify-content-center bg-black text-white py-5 p-lg-5">
@@ -252,131 +251,6 @@
     <!-- Bootstrap JS Bundle CDN (includes Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/navbar.js"></script>
-    <script>
-      // Enhanced Bootstrap offcanvas functionality for mobile
-      document.addEventListener('DOMContentLoaded', function() {
-        const togglers = document.querySelectorAll('[data-bs-toggle="offcanvas"]');
-        const offcanvases = document.querySelectorAll('.offcanvas');
-        const backdrop = document.getElementById('offcanvasBackdrop');
-        
-        // Function to show offcanvas
-        function showOffcanvas(target) {
-          // Prevent body scroll
-          document.body.style.overflow = 'hidden';
-          document.body.style.paddingRight = '15px'; // Compensate for scrollbar
-          
-          // Show backdrop
-          backdrop.classList.add('show');
-          backdrop.style.display = 'block';
-          
-          // Show offcanvas
-          target.classList.add('show');
-          target.style.visibility = 'visible';
-          target.style.transform = 'translateX(0)';
-          
-          // Focus management
-          target.focus();
-          
-          // Trap focus within offcanvas
-          trapFocus(target);
-        }
-        
-        // Function to hide offcanvas
-        function hideOffcanvas(offcanvas) {
-          // Restore body scroll
-          document.body.style.overflow = '';
-          document.body.style.paddingRight = '';
-          
-          // Hide backdrop
-          backdrop.classList.remove('show');
-          setTimeout(() => {
-            backdrop.style.display = 'none';
-          }, 150);
-          
-          // Hide offcanvas
-          offcanvas.classList.remove('show');
-          offcanvas.style.transform = 'translateX(-100%)';
-          setTimeout(() => {
-            offcanvas.style.visibility = 'hidden';
-          }, 300);
-        }
-        
-        // Focus trap function
-        function trapFocus(element) {
-          const focusableElements = element.querySelectorAll(
-            'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'
-          );
-          const firstFocusableElement = focusableElements[0];
-          const lastFocusableElement = focusableElements[focusableElements.length - 1];
-          
-          element.addEventListener('keydown', function(e) {
-            if (e.key === 'Tab') {
-              if (e.shiftKey) {
-                if (document.activeElement === firstFocusableElement) {
-                  lastFocusableElement.focus();
-                  e.preventDefault();
-                }
-              } else {
-                if (document.activeElement === lastFocusableElement) {
-                  firstFocusableElement.focus();
-                  e.preventDefault();
-                }
-              }
-            }
-          });
-        }
-        
-        // Toggle button click handlers
-        togglers.forEach(toggler => {
-          toggler.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('data-bs-target'));
-            if (target) {
-              showOffcanvas(target);
-            }
-          });
-        });
-        
-        // Close button click handlers
-        document.querySelectorAll('[data-bs-dismiss="offcanvas"]').forEach(closer => {
-          closer.addEventListener('click', function(e) {
-            e.preventDefault();
-            const offcanvas = this.closest('.offcanvas');
-            if (offcanvas) {
-              hideOffcanvas(offcanvas);
-            }
-          });
-        });
-        
-        // Backdrop click handler
-        backdrop.addEventListener('click', function() {
-          const openOffcanvas = document.querySelector('.offcanvas.show');
-          if (openOffcanvas) {
-            hideOffcanvas(openOffcanvas);
-          }
-        });
-        
-        // Escape key handler
-        document.addEventListener('keydown', function(e) {
-          if (e.key === 'Escape') {
-            const openOffcanvas = document.querySelector('.offcanvas.show');
-            if (openOffcanvas) {
-              hideOffcanvas(openOffcanvas);
-            }
-          }
-        });
-        
-        // Close menu when clicking on nav links (for better UX)
-        document.querySelectorAll('.offcanvas .nav-link').forEach(link => {
-          link.addEventListener('click', function() {
-            const offcanvas = this.closest('.offcanvas');
-            if (offcanvas) {
-              setTimeout(() => hideOffcanvas(offcanvas), 150);
-            }
-          });
-        });
-      });
-    </script>
 
 </body>
 
