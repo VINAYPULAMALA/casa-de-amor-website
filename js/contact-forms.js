@@ -113,16 +113,40 @@ function switchTab(tabType) {
   const issueTab = document.getElementById('issue-tab');
   const enquiryTab = document.getElementById('enquiry-tab');
   
+  // Update tab content
+  const issueForm = document.getElementById('issue-form');
+  const enquiryForm = document.getElementById('enquiry-form');
+  
   if (tabType === 'issue') {
+    // Update tab buttons
     issueTab.classList.add('active', 'orange-bg', 'text-white');
     issueTab.classList.remove('bg-white', 'text-dark');
+    issueTab.setAttribute('aria-selected', 'true');
+    
     enquiryTab.classList.remove('active', 'orange-bg', 'text-white');
     enquiryTab.classList.add('bg-white', 'text-dark');
+    enquiryTab.setAttribute('aria-selected', 'false');
+    
+    // Update tab content
+    issueForm.classList.add('show', 'active');
+    issueForm.classList.remove('fade');
+    enquiryForm.classList.remove('show', 'active');
+    enquiryForm.classList.add('fade');
   } else {
+    // Update tab buttons
     enquiryTab.classList.add('active', 'orange-bg', 'text-white');
     enquiryTab.classList.remove('bg-white', 'text-dark');
+    enquiryTab.setAttribute('aria-selected', 'true');
+    
     issueTab.classList.remove('active', 'orange-bg', 'text-white');
     issueTab.classList.add('bg-white', 'text-dark');
+    issueTab.setAttribute('aria-selected', 'false');
+    
+    // Update tab content
+    enquiryForm.classList.add('show', 'active');
+    enquiryForm.classList.remove('fade');
+    issueForm.classList.remove('show', 'active');
+    issueForm.classList.add('fade');
   }
 }
 
@@ -133,16 +157,22 @@ function toggleContactMethod() {
   const emailField = document.getElementById('issue-email-field');
   const phoneField = document.getElementById('issue-phone-field');
   
-  if (emailRadio.checked) {
+  if (emailRadio && emailRadio.checked) {
     emailField.style.display = 'block';
     phoneField.style.display = 'none';
     document.getElementById('issue-phone').value = '';
     clearFieldError('issue-phone', 'issue');
-  } else if (phoneRadio.checked) {
+  } else if (phoneRadio && phoneRadio.checked) {
     phoneField.style.display = 'block';
     emailField.style.display = 'none';
     document.getElementById('issue-email').value = '';
     clearFieldError('issue-email', 'issue');
+  } else {
+    // Default to email if neither is selected
+    if (emailField && phoneField) {
+      emailField.style.display = 'block';
+      phoneField.style.display = 'none';
+    }
   }
 }
 
@@ -417,6 +447,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Contact method toggle
   document.getElementById('issue-email-contact').addEventListener('change', toggleContactMethod);
   document.getElementById('issue-phone-contact').addEventListener('change', toggleContactMethod);
+  
+  // Initialize contact method on page load
+  toggleContactMethod();
   
   // Character count updates
   document.getElementById('issue-description').addEventListener('input', function() {
