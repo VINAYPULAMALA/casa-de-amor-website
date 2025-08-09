@@ -28,6 +28,34 @@ const validationPatterns = {
   phone: /^[\+]?[\d\s\-\(\)]{8,15}$/
 };
 
+// Enhanced phone validation function
+function isValidPhoneNumber(phone) {
+  // Remove all non-digit characters for validation
+  const cleanPhone = phone.replace(/\D/g, '');
+  
+  // Check minimum and maximum length
+  if (cleanPhone.length < 8 || cleanPhone.length > 15) {
+    return false;
+  }
+  
+  // Australian phone number patterns
+  const australianPatterns = [
+    /^(\+?61\s?)?(\(?0[2-9]\)\s?|\(?0[2-9]\s?\)?)\s?\d{4}\s?\d{4}$/, // Australian landline
+    /^(\+?61\s?)?\(?04\d{2}\)?\s?\d{3}\s?\d{3}$/, // Australian mobile
+    /^(\+?61\s?)?\(?1[38]\d{2}\)?\s?\d{3}\s?\d{3}$/ // Australian special numbers
+  ];
+  
+  // US/International patterns  
+  const internationalPatterns = [
+    /^(\+?1\s?)?\(?\d{3}\)?\s?[\d\s\-]{7,10}$/, // US/Canada format
+    /^(\+?\d{1,3}\s?)?\(?\d{2,4}\)?\s?[\d\s\-]{6,12}$/ // General international
+  ];
+  
+  // Test against patterns
+  const allPatterns = [...australianPatterns, ...internationalPatterns];
+  return allPatterns.some(pattern => pattern.test(phone));
+}
+
 // Validation functions
 function validateField(fieldId, value, type, formType) {
   const trimmedValue = value.trim();
@@ -48,7 +76,10 @@ function validateField(fieldId, value, type, formType) {
     case 'phone':
       if (!trimmedValue) return 'Phone number is required';
       if (!validationPatterns.phone.test(trimmedValue)) {
-        return 'Please enter a valid phone number';
+        return 'Phone number format is invalid';
+      }
+      if (!isValidPhoneNumber(trimmedValue)) {
+        return 'Please enter a valid phone number (e.g., (03) 6169 2286 or 0412 345 678)';
       }
       break;
     case 'date':
