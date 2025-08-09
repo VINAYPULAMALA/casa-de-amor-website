@@ -187,24 +187,32 @@ function toggleContactMethod() {
   const phoneRadio = document.getElementById('issue-phone-contact');
   const emailField = document.getElementById('issue-email-field');
   const phoneField = document.getElementById('issue-phone-field');
+  const emailInput = document.getElementById('issue-email');
+  const phoneInput = document.getElementById('issue-phone');
   
   if (emailRadio && emailRadio.checked) {
     // Show email field, hide phone field
     emailField.classList.remove('d-none');
     phoneField.classList.add('d-none');
-    document.getElementById('issue-phone').value = '';
+    phoneInput.value = '';
+    phoneInput.removeAttribute('required');
+    emailInput.setAttribute('required', 'required');
     clearFieldError('issue-phone', 'issue');
   } else if (phoneRadio && phoneRadio.checked) {
     // Show phone field, hide email field
     phoneField.classList.remove('d-none');
     emailField.classList.add('d-none');
-    document.getElementById('issue-email').value = '';
+    emailInput.value = '';
+    emailInput.removeAttribute('required');
+    phoneInput.setAttribute('required', 'required');
     clearFieldError('issue-email', 'issue');
   } else {
     // Default to email if neither is selected
     if (emailField && phoneField) {
       emailField.classList.remove('d-none');
       phoneField.classList.add('d-none');
+      if (phoneInput) phoneInput.removeAttribute('required');
+      if (emailInput) emailInput.setAttribute('required', 'required');
     }
   }
 }
