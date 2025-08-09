@@ -158,20 +158,22 @@ function toggleContactMethod() {
   const phoneField = document.getElementById('issue-phone-field');
   
   if (emailRadio && emailRadio.checked) {
-    emailField.style.display = 'block';
-    phoneField.style.display = 'none';
+    // Show email field, hide phone field
+    emailField.classList.remove('d-none');
+    phoneField.classList.add('d-none');
     document.getElementById('issue-phone').value = '';
     clearFieldError('issue-phone', 'issue');
   } else if (phoneRadio && phoneRadio.checked) {
-    phoneField.style.display = 'block';
-    emailField.style.display = 'none';
+    // Show phone field, hide email field
+    phoneField.classList.remove('d-none');
+    emailField.classList.add('d-none');
     document.getElementById('issue-email').value = '';
     clearFieldError('issue-email', 'issue');
   } else {
     // Default to email if neither is selected
     if (emailField && phoneField) {
-      emailField.style.display = 'block';
-      phoneField.style.display = 'none';
+      emailField.classList.remove('d-none');
+      phoneField.classList.add('d-none');
     }
   }
 }
