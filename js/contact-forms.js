@@ -28,27 +28,37 @@ const validationPatterns = {
   phone: /^[\+]?[\d\s\-\(\)]{8,15}$/
 };
 
-// Enhanced phone validation function
+// Enhanced phone validation function with stricter rules
 function isValidPhoneNumber(phone) {
   // Remove all non-digit characters for validation
   const cleanPhone = phone.replace(/\D/g, '');
   
-  // Check minimum and maximum length
-  if (cleanPhone.length < 8 || cleanPhone.length > 15) {
+  // Australian mobile numbers must be exactly 10 digits (04xxxxxxxx)
+  if (cleanPhone.startsWith('04') && cleanPhone.length !== 10) {
     return false;
   }
   
-  // Australian phone number patterns
+  // Australian landlines must be exactly 10 digits (0[2-9]xxxxxxxx)  
+  if (cleanPhone.startsWith('0') && !cleanPhone.startsWith('04') && cleanPhone.length !== 10) {
+    return false;
+  }
+  
+  // Check minimum and maximum length for all numbers
+  if (cleanPhone.length < 10 || cleanPhone.length > 15) {
+    return false;
+  }
+  
+  // Australian phone number patterns with stricter validation
   const australianPatterns = [
-    /^(\+?61\s?)?(\(?0[2-9]\)\s?|\(?0[2-9]\s?\)?)\s?\d{4}\s?\d{4}$/, // Australian landline
-    /^(\+?61\s?)?\(?04\d{2}\)?\s?\d{3}\s?\d{3}$/, // Australian mobile
+    /^(\+?61\s?)?(\(?0[2-9]\)\s?|\(?0[2-9]\s?\)?)\s?\d{4}\s?\d{4}$/, // Australian landline - exactly 10 digits
+    /^(\+?61\s?)?\(?04\d{2}\)?\s?\d{3}\s?\d{3}$/, // Australian mobile - exactly 10 digits
     /^(\+?61\s?)?\(?1[38]\d{2}\)?\s?\d{3}\s?\d{3}$/ // Australian special numbers
   ];
   
-  // US/International patterns  
+  // US/International patterns with minimum 10 digits
   const internationalPatterns = [
     /^(\+?1\s?)?\(?\d{3}\)?\s?[\d\s\-]{7,10}$/, // US/Canada format
-    /^(\+?\d{1,3}\s?)?\(?\d{2,4}\)?\s?[\d\s\-]{6,12}$/ // General international
+    /^(\+?\d{1,3}\s?)?\(?\d{2,4}\)?\s?[\d\s\-]{8,12}$/ // General international - min 10 total digits
   ];
   
   // Test against patterns
@@ -93,6 +103,12 @@ function validateField(fieldId, value, type, formType) {
       break;
     case 'required':
       if (!trimmedValue) return 'This field is required';
+      break;
+    case 'description':
+      if (!trimmedValue) return 'Description is required';
+      if (trimmedValue.length < 10) {
+        return 'Please provide at least 10 characters for a meaningful description';
+      }
       break;
   }
   return null;
@@ -217,6 +233,42 @@ function toggleContactMethod() {
   }
 }
 
+// Contact method toggle for enquiry form
+function toggleEnquiryContactMethod() {
+  const emailRadio = document.getElementById('enquiry-email-contact');
+  const phoneRadio = document.getElementById('enquiry-phone-contact');
+  const emailField = document.getElementById('enquiry-email-field');
+  const phoneField = document.getElementById('enquiry-phone-field');
+  const emailInput = document.getElementById('enquiry-email');
+  const phoneInput = document.getElementById('enquiry-phone');
+  
+  if (emailRadio && emailRadio.checked) {
+    // Show email field, hide phone field
+    emailField.classList.remove('d-none');
+    phoneField.classList.add('d-none');
+    phoneInput.value = '';
+    phoneInput.removeAttribute('required');
+    emailInput.setAttribute('required', 'required');
+    clearFieldError('enquiry-phone', 'enquiry');
+  } else if (phoneRadio && phoneRadio.checked) {
+    // Show phone field, hide email field
+    phoneField.classList.remove('d-none');
+    emailField.classList.add('d-none');
+    emailInput.value = '';
+    emailInput.removeAttribute('required');
+    phoneInput.setAttribute('required', 'required');
+    clearFieldError('enquiry-email', 'enquiry');
+  } else {
+    // Default to email if neither is selected
+    if (emailField && phoneField) {
+      emailField.classList.remove('d-none');
+      phoneField.classList.add('d-none');
+      if (phoneInput) phoneInput.removeAttribute('required');
+      if (emailInput) emailInput.setAttribute('required', 'required');
+    }
+  }
+}
+
 // Character count updates
 function updateCharacterCount(textareaId, counterId) {
   const textarea = document.getElementById(textareaId);
@@ -288,7 +340,7 @@ function validateForm(formType) {
       isValid = false;
     }
     
-    const descriptionError = validateField('issue-description', description, 'required', formType);
+    const descriptionError = validateField('issue-description', description, 'description', formType);
     if (descriptionError) {
       showFieldError('issue-description', descriptionError, formType);
       isValid = false;
@@ -297,10 +349,11 @@ function validateForm(formType) {
   } else {
     // Validate enquiry form
     const name = document.getElementById('enquiry-name').value;
-    const contact = document.getElementById('enquiry-contact').value;
+    const contactMethod = document.querySelector('input[name="enquiry-contact-method"]:checked');
     const date = document.getElementById('enquiry-date').value;
     const time = document.getElementById('enquiry-time').value;
     const people = document.getElementById('enquiry-people').value;
+    const eventType = document.getElementById('enquiry-event-type').value;
     const description = document.getElementById('enquiry-description').value;
     
     const nameError = validateField('enquiry-name', name, 'name', formType);
@@ -309,10 +362,26 @@ function validateForm(formType) {
       isValid = false;
     }
     
-    const contactError = validateField('enquiry-contact', contact, 'phone', formType);
-    if (contactError) {
-      showFieldError('enquiry-contact', contactError, formType);
+    // Contact method validation
+    if (!contactMethod) {
+      showFieldError('enquiry-contact-method', 'Please select a contact method', formType);
       isValid = false;
+    } else {
+      if (contactMethod.value === 'email') {
+        const email = document.getElementById('enquiry-email').value;
+        const emailError = validateField('enquiry-email', email, 'email', formType);
+        if (emailError) {
+          showFieldError('enquiry-email', emailError, formType);
+          isValid = false;
+        }
+      } else {
+        const phone = document.getElementById('enquiry-phone').value;
+        const phoneError = validateField('enquiry-phone', phone, 'phone', formType);
+        if (phoneError) {
+          showFieldError('enquiry-phone', phoneError, formType);
+          isValid = false;
+        }
+      }
     }
     
     const dateError = validateField('enquiry-date', date, 'date', formType);
@@ -331,7 +400,12 @@ function validateForm(formType) {
       isValid = false;
     }
     
-    const descriptionError = validateField('enquiry-description', description, 'required', formType);
+    if (!eventType.trim()) {
+      showFieldError('enquiry-event-type', 'Please select an event type', formType);
+      isValid = false;
+    }
+    
+    const descriptionError = validateField('enquiry-description', description, 'description', formType);
     if (descriptionError) {
       showFieldError('enquiry-description', descriptionError, formType);
       isValid = false;
@@ -404,25 +478,28 @@ ${formData.description}
       to_name: 'Casa de Amor Team',
       to_email: CONFIG.email.adminEmail,
       from_name: formData.name,
-      from_email: formData.contact, // Using phone as fallback
-      reply_to: formData.contact,
+      reply_to: formData.contactInfo,
       subject: 'New Enquiry - Casa de Amor',
       form_type: 'ENQUIRY',
-      contact_number: formData.contact,
-      phone: formData.contact, // Alternative parameter name
+      contact_method: formData.contactMethod,
+      contact_info: formData.contactInfo,
       preferred_date: formData.date,
       date: formData.date, // Alternative parameter name
       preferred_time: formData.time,
       time: formData.time, // Alternative parameter name
       number_of_people: formData.people,
       people: formData.people, // Alternative parameter name
+      event_type: formData.eventType,
+      eventType: formData.eventType, // Alternative parameter name
       enquiry_description: formData.description,
       description: formData.description, // Alternative parameter name
       message: `From: ${formData.name}
-Phone: ${formData.contact}
+Contact Method: ${formData.contactMethod}
+Contact Info: ${formData.contactInfo}
 Preferred Date: ${formData.date}
 Preferred Time: ${formData.time}
 Number of People: ${formData.people}
+Event Type: ${formData.eventType}
 
 Enquiry Description:
 ${formData.description}`
@@ -485,12 +562,17 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('issue-tab').addEventListener('click', () => switchTab('issue'));
   document.getElementById('enquiry-tab').addEventListener('click', () => switchTab('enquiry'));
   
-  // Contact method toggle
+  // Contact method toggle for issue form
   document.getElementById('issue-email-contact').addEventListener('change', toggleContactMethod);
   document.getElementById('issue-phone-contact').addEventListener('change', toggleContactMethod);
   
-  // Initialize contact method on page load
+  // Contact method toggle for enquiry form
+  document.getElementById('enquiry-email-contact').addEventListener('change', toggleEnquiryContactMethod);
+  document.getElementById('enquiry-phone-contact').addEventListener('change', toggleEnquiryContactMethod);
+  
+  // Initialize contact methods on page load
   toggleContactMethod();
+  toggleEnquiryContactMethod();
   
   // Character count updates
   document.getElementById('issue-description').addEventListener('input', function() {
@@ -536,12 +618,19 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (!validateForm('enquiry')) return;
     
+    const contactMethod = document.querySelector('input[name="enquiry-contact-method"]:checked');
+    const contactInfo = contactMethod.value === 'email' ? 
+      document.getElementById('enquiry-email').value : 
+      document.getElementById('enquiry-phone').value;
+    
     const formData = {
       name: document.getElementById('enquiry-name').value,
-      contact: document.getElementById('enquiry-contact').value,
+      contactMethod: contactMethod.value,
+      contactInfo: contactInfo,
       date: document.getElementById('enquiry-date').value,
       time: document.getElementById('enquiry-time').value,
       people: document.getElementById('enquiry-people').value,
+      eventType: document.getElementById('enquiry-event-type').value,
       description: document.getElementById('enquiry-description').value
     };
     
@@ -555,7 +644,8 @@ document.addEventListener('DOMContentLoaded', function() {
     { id: 'issue-phone', type: 'phone', form: 'issue' },
     { id: 'issue-booking-date', type: 'date', form: 'issue' },
     { id: 'enquiry-name', type: 'name', form: 'enquiry' },
-    { id: 'enquiry-contact', type: 'phone', form: 'enquiry' },
+    { id: 'enquiry-email', type: 'email', form: 'enquiry' },
+    { id: 'enquiry-phone', type: 'phone', form: 'enquiry' },
     { id: 'enquiry-date', type: 'date', form: 'enquiry' }
   ];
   

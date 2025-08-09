@@ -255,9 +255,30 @@
                   </div>
 
                   <div class="col-12">
-                    <label for="enquiry-contact" class="form-label">Contact Number <span class="orange">*</span></label>
-                    <input type="tel" class="form-control" id="enquiry-contact" data-validation="phone" required>
-                    <div class="invalid-feedback" id="enquiry-contact-error"></div>
+                    <fieldset class="mb-3">
+                      <legend class="form-label">Preferred Contact Method <span class="orange">*</span></legend>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="enquiry-contact-method" id="enquiry-email-contact" value="email" required checked>
+                        <label class="form-check-label" for="enquiry-email-contact">Email</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="enquiry-contact-method" id="enquiry-phone-contact" value="phone" required>
+                        <label class="form-check-label" for="enquiry-phone-contact">Phone</label>
+                      </div>
+                    </fieldset>
+                    <div class="invalid-feedback" id="enquiry-contact-method-error"></div>
+                  </div>
+
+                  <div class="col-12" id="enquiry-email-field">
+                    <label for="enquiry-email" class="form-label">Email Address <span class="orange">*</span></label>
+                    <input type="email" class="form-control" id="enquiry-email" data-validation="email">
+                    <div class="invalid-feedback" id="enquiry-email-error"></div>
+                  </div>
+
+                  <div class="col-12 d-none" id="enquiry-phone-field">
+                    <label for="enquiry-phone" class="form-label">Phone Number <span class="orange">*</span></label>
+                    <input type="tel" class="form-control" id="enquiry-phone" data-validation="phone">
+                    <div class="invalid-feedback" id="enquiry-phone-error"></div>
                   </div>
 
                   <div class="col-md-6">
@@ -300,6 +321,18 @@
                       <option value="9+">9+ people</option>
                     </select>
                     <div class="invalid-feedback" id="enquiry-people-error"></div>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="enquiry-event-type" class="form-label">Event Type <span class="orange">*</span></label>
+                    <select class="form-select" id="enquiry-event-type" required>
+                      <option value="">Select event type</option>
+                      <option value="birthday">Birthday</option>
+                      <option value="engagement">Engagement</option>
+                      <option value="corporate">Corporate</option>
+                      <option value="other">Other</option>
+                    </select>
+                    <div class="invalid-feedback" id="enquiry-event-type-error"></div>
                   </div>
 
                   <div class="col-12">
