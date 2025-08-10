@@ -90,3 +90,63 @@
   height: 100px;
   border-radius: 4px;
 }
+
+/* === Reviews Carousel === */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.reviews-carousel-container {
+  mask: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+/* === Mobile Responsive Styles === */
+@media (max-width: 768px) {
+  .reviews-carousel-container {
+    height: 320px !important;
+  }
+  
+  .review-card {
+    width: 280px !important;
+    height: 280px !important;
+    padding: 1rem !important;
+  }
+  
+  .review-card p {
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* Hide some review cards on mobile for better performance */
+  .review-card:nth-child(n+6) {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .reviews-carousel-container {
+    height: 270px !important;
+  }
+  
+  .review-card {
+    width: 250px !important;
+    height: 240px !important;
+    padding: 0.8rem !important;
+  }
+  
+  .review-card p {
+    font-size: 0.95rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* Show even fewer cards on small mobile */
+  .review-card:nth-child(n+4) {
+    display: none;
+  }
+}
