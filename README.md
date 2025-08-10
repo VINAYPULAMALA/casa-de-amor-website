@@ -15,7 +15,7 @@ A modern, responsive website for Casa de Amor Mexican Restaurant located in Hoba
 - `index.html` - Homepage with restaurant introduction
 - `contact.html` - Contact page with dual-form system
 - `Functions.html` - Functions and events information
-- `Food-Fun.html` - Food and drinks menu
+- `food-fun.html` - Food and drinks menu
 - `whats-on.html` - Current events and promotions
 
 ## Technologies Used

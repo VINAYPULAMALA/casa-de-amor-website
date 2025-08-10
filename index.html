@@ -41,7 +41,7 @@
                <div class="collapse navbar-collapse justify-content-end   d-none d-lg-flex">
           <ul class="navbar-nav mb-2 fs-6 gap-3 mb-lg-0">
             <li class="nav-item"><a class="nav-link text-white" href="whats-on.html">WHAT'S ON</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="Food-Fun.html">FOOD & DRINKS</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="food-fun.html">FOOD & DRINKS</a></li>
             <li class="nav-item"><a class="nav-link active text-white" href="Functions.html">FUNCTIONS</a></li>
             <li class="nav-item"><a class="nav-link text-white" href="contact.html">CONTACT</a></li>
           </ul>
@@ -60,7 +60,7 @@
         </div>
 
         <div class="d-none d-xl-block">
-          <a href="https://bookings.nowbookit.com/?accountid=26dc0ca2-abcf-47ef-b18a-d968985ca6d3&venueid=7382&theme=light&colors=hex,3e2723" target="_blank" class="btn btn-lg orange-bg text-white float-lg-end px-xl-5 py-lg-3 py-xxl-3">Book Now</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#bookingModal" class="btn btn-lg orange-bg text-white float-lg-end px-xl-5 py-lg-3 py-xxl-3">Book Now</a>
         </div>
       </div>
     </nav>
@@ -76,7 +76,7 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link fs-3 text-white" href="whats-on.html">WHAT'S ON</a></li>
-          <li class="nav-item"><a class="nav-link fs-3 text-white" href="Food-Fun.html">FOOD & DRINKS</a></li>
+          <li class="nav-item"><a class="nav-link fs-3 text-white" href="food-fun.html">FOOD & DRINKS</a></li>
           <li class="nav-item"><a class="nav-link fs-3 text-white" href="Functions.html">FUNCTIONS</a></li>
           <li class="nav-item"><a class="nav-link fs-3 text-white" href="contact.html">CONTACT</a></li>
         </ul>
@@ -93,7 +93,7 @@
             </svg></a>
         </div>
         <div class="mt-5">
-          <a href="https://bookings.nowbookit.com/?accountid=26dc0ca2-abcf-47ef-b18a-d968985ca6d3&venueid=7382&theme=light&colors=hex,3e2723" target="_blank" class="btn btn-lg orange-bg text-white float-lg-end px-xl-5 py-lg-3 py-xxl-3">Book Now</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#bookingModal" class="btn btn-lg orange-bg text-white float-lg-end px-xl-5 py-lg-3 py-xxl-3">Book Now</a>
         </div>
       </div>
     </div>
@@ -103,7 +103,7 @@
     <div class="container h-100 d-flex flex-column justify-content-center align-items-center text-center">
       <h2 class="display-1 display-md-2 fw-bold hero-title"><span class="orange">“</span>Serving Hobart’s <br>Best Mexican Since 1977<span class="orange">”</span></h2>
       <div class="mt-4 d-flex gap-3 flex-wrap justify-content-center">
-        <a href="https://bookings.nowbookit.com/?accountid=26dc0ca2-abcf-47ef-b18a-d968985ca6d3&venueid=7382&theme=light&colors=hex,3e2723" target="_blank" class="btn btn-lg orange-bg text-white float-lg-end px-xl-5 py-lg-3 py-xxl-3">Book Now</a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#bookingModal" class="btn btn-lg orange-bg text-white float-lg-end px-xl-5 py-lg-3 py-xxl-3">Book Now</a>
         <a href="tacosmexicanmenu.pdf" target="_blank" class="btn btn-lg orange-bg text-white float-lg-end px-xl-5 py-lg-3 py-xxl-3">VIEW MENU</a>
       </div>
     </div>
@@ -186,7 +186,7 @@
       <p><span class="orange fs-5"><strong>Casa's got you covered.</strong></span></p>
       <div class="mt-4 mb-5 d-flex gap-3 flex-wrap">
         <a href="tacosmexicanmenu.pdf" target="_blank" class="btn btn-lg orange-bg text-white float-lg-end px-xl-5 py-lg-3 py-xxl-3">MENU</a>
-        <a href="https://bookings.nowbookit.com/?accountid=26dc0ca2-abcf-47ef-b18a-d968985ca6d3&venueid=7382&theme=light&colors=hex,3e2723" target="_blank" class="btn btn-lg orange-bg text-white float-lg-end px-xl-5 py-lg-3 py-xxl-3">Book Now</a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#bookingModal" class="btn btn-lg orange-bg text-white float-lg-end px-xl-5 py-lg-3 py-xxl-3">Book Now</a>
       </div>
     </div>
   </section>
@@ -262,6 +262,35 @@
       </div>
     </div>
   </section>
+
+  <!-- Booking Modal -->
+  <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-dark text-white" style="padding: 8px 1rem;">
+          <h5 class="modal-title d-flex align-items-center" id="bookingModalLabel">
+            <img src="Images/logos/Casa de Amor - white.png" alt="Casa de Amor" style="height: 45px; width: auto; margin-right: 15px; object-fit: contain;">
+            <span style="font-size: 1.1rem; font-weight: 600;">Book Your Table</span>
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" style="margin: 0;"></button>
+        </div>
+        <div class="modal-body p-0">
+          <iframe 
+            id="bookingIframe"
+            src="https://bookings.nowbookit.com/?accountid=26dc0ca2-abcf-47ef-b18a-d968985ca6d3&venueid=7382&theme=light&colors=hex,3e2723"
+            width="100%" 
+            height="600" 
+            frameborder="0"
+            title="Casa de Amor Booking System">
+          </iframe>
+        </div>
+        <div class="modal-footer bg-light">
+          <small class="text-muted">Secure booking powered by NowBookIt</small>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Bootstrap JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
