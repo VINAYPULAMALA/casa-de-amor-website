@@ -142,230 +142,234 @@
 
           <!-- Tab Content -->
           <div class="tab-content mt-4" id="contact-tab-content">
-            <div class="tab-pane fade show active" id="issue-form" role="tabpanel">
-              <form class="fs-6" id="issue-form-element" novalidate>
-                <div class="row g-3">
-                  <div class="col-12">
-                    <label for="issue-name" class="form-label">Full Name <span class="orange">*</span></label>
-                    <input type="text" class="form-control" id="issue-name" data-validation="name" required>
-                    <div class="invalid-feedback" id="issue-name-error"></div>
-                  </div>
-
-                  <div class="col-12">
-                    <fieldset class="mb-3">
-                      <legend class="form-label">Preferred Contact Method <span class="orange">*</span></legend>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="issue-contact-method"
-                          id="issue-email-contact" value="email" required checked>
-                        <label class="form-check-label" for="issue-email-contact">Email</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="issue-contact-method"
-                          id="issue-phone-contact" value="phone" required>
-                        <label class="form-check-label" for="issue-phone-contact">Phone</label>
-                      </div>
-                    </fieldset>
-                    <div class="invalid-feedback" id="issue-contact-method-error"></div>
-                  </div>
-
-                  <div class="col-12" id="issue-email-field">
-                    <label for="issue-email" class="form-label">Email Address <span class="orange">*</span></label>
-                    <input type="email" class="form-control" id="issue-email" data-validation="email">
-                    <div class="invalid-feedback" id="issue-email-error"></div>
-                  </div>
-
-                  <div class="col-12 d-none" id="issue-phone-field">
-                    <label for="issue-phone" class="form-label">Phone Number <span class="orange">*</span></label>
-                    <input type="tel" class="form-control" id="issue-phone" data-validation="phone">
-                    <div class="invalid-feedback" id="issue-phone-error"></div>
-                  </div>
-
-                  <div class="col-12">
-                    <label for="issue-booking-details" class="form-label">Booking Details <span
-                        class="orange">*</span></label>
-                    <input type="text" class="form-control" id="issue-booking-details"
-                      placeholder="e.g., Table for 4, Confirmation #ABC123" required>
-                    <div class="invalid-feedback" id="issue-booking-details-error"></div>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label for="issue-booking-date" class="form-label">Booking Date <span
-                        class="orange">*</span></label>
-                    <input type="date" class="form-control" id="issue-booking-date" data-validation="date" required>
-                    <div class="invalid-feedback" id="issue-booking-date-error"></div>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label for="issue-booking-time" class="form-label">Booking Time <span
-                        class="orange">*</span></label>
-                    <select class="form-select" id="issue-booking-time" required>
-                      <option value="">Select time</option>
-                      <option value="17:00">5:00 PM</option>
-                      <option value="17:30">5:30 PM</option>
-                      <option value="18:00">6:00 PM</option>
-                      <option value="18:30">6:30 PM</option>
-                      <option value="19:00">7:00 PM</option>
-                      <option value="19:30">7:30 PM</option>
-                      <option value="20:00">8:00 PM</option>
-                      <option value="20:30">8:30 PM</option>
-                      <option value="21:00">9:00 PM</option>
-                      <option value="21:30">9:30 PM</option>
-                      <option value="22:00">10:00 PM</option>
-                    </select>
-                    <div class="invalid-feedback" id="issue-booking-time-error"></div>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label for="issue-walk-in-time" class="form-label">Walk-in Time</label>
-                    <input type="time" class="form-control" id="issue-walk-in-time">
-                  </div>
-
-                  <div class="col-md-6">
-                    <label for="issue-walk-out-time" class="form-label">Walk-out Time</label>
-                    <input type="time" class="form-control" id="issue-walk-out-time">
-                  </div>
-
-                  <div class="col-12">
-                    <label for="issue-description" class="form-label">Issue Description <span
-                        class="orange">*</span></label>
-                    <textarea class="form-control" id="issue-description" rows="4" maxlength="500" required></textarea>
-                    <div class="form-text text-white-50">
-                      <span id="issue-description-count">0</span>/500 characters
-                    </div>
-                    <div class="invalid-feedback" id="issue-description-error"></div>
-                  </div>
-
-                  <div class="col-12">
-                    <button type="submit" class="btn btn-lg orange-bg text-white px-xl-5 py-lg-3 py-xxl-3"
-                      id="issue-submit-btn">
-                      <span id="issue-submit-text">SUBMIT</span>
-                      <span id="issue-loading" class="d-none">
-                        <span class="spinner-border spinner-border-sm me-2" role="status"></span>
-                        Sending...
-                      </span>
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </div>
-
-            <div class="tab-pane fade" id="enquiry-form" role="tabpanel">
-              <form class="fs-6" id="enquiry-form-element" novalidate>
-                <div class="row g-3">
-                  <div class="col-12">
-                    <label for="enquiry-name" class="form-label">Full Name <span class="orange">*</span></label>
-                    <input type="text" class="form-control" id="enquiry-name" data-validation="name" required>
-                    <div class="invalid-feedback" id="enquiry-name-error"></div>
-                  </div>
-
-                  <div class="col-12">
-                    <fieldset class="mb-3">
-                      <legend class="form-label">Preferred Contact Method <span class="orange">*</span></legend>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="enquiry-contact-method"
-                          id="enquiry-email-contact" value="email" required checked>
-                        <label class="form-check-label" for="enquiry-email-contact">Email</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="enquiry-contact-method"
-                          id="enquiry-phone-contact" value="phone" required>
-                        <label class="form-check-label" for="enquiry-phone-contact">Phone</label>
-                      </div>
-                    </fieldset>
-                    <div class="invalid-feedback" id="enquiry-contact-method-error"></div>
-                  </div>
-
-                  <div class="col-12" id="enquiry-email-field">
-                    <label for="enquiry-email" class="form-label">Email Address <span class="orange">*</span></label>
-                    <input type="email" class="form-control" id="enquiry-email" data-validation="email">
-                    <div class="invalid-feedback" id="enquiry-email-error"></div>
-                  </div>
-
-                  <div class="col-12 d-none" id="enquiry-phone-field">
-                    <label for="enquiry-phone" class="form-label">Phone Number <span class="orange">*</span></label>
-                    <input type="tel" class="form-control" id="enquiry-phone" data-validation="phone">
-                    <div class="invalid-feedback" id="enquiry-phone-error"></div>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label for="enquiry-date" class="form-label">Preferred Date <span class="orange">*</span></label>
-                    <input type="date" class="form-control" id="enquiry-date" data-validation="date" required>
-                    <div class="invalid-feedback" id="enquiry-date-error"></div>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label for="enquiry-time" class="form-label">Preferred Time <span class="orange">*</span></label>
-                    <select class="form-select" id="enquiry-time" required>
-                      <option value="">Select time</option>
-                      <option value="17:00">5:00 PM</option>
-                      <option value="17:30">5:30 PM</option>
-                      <option value="18:00">6:00 PM</option>
-                      <option value="18:30">6:30 PM</option>
-                      <option value="19:00">7:00 PM</option>
-                      <option value="19:30">7:30 PM</option>
-                      <option value="20:00">8:00 PM</option>
-                      <option value="20:30">8:30 PM</option>
-                      <option value="21:00">9:00 PM</option>
-                      <option value="21:30">9:30 PM</option>
-                      <option value="22:00">10:00 PM</option>
-                    </select>
-                    <div class="invalid-feedback" id="enquiry-time-error"></div>
-                  </div>
-
-                  <div class="col-12">
-                    <label for="enquiry-people" class="form-label">Number of <span class="orange">*</span></label>
-                    <select class="form-select" id="enquiry-people" required>
-                      <option value="">Select number</option>
-                      <option value="1">1 person</option>
-                      <option value="2">2 people</option>
-                      <option value="3">3 people</option>
-                      <option value="4">4 people</option>
-                      <option value="5">5 people</option>
-                      <option value="6">6 people</option>
-                      <option value="7">7 people</option>
-                      <option value="8">8 people</option>
-                      <option value="9+">9+ people</option>
-                    </select>
-                    <div class="invalid-feedback" id="enquiry-people-error"></div>
-                  </div>
-
-                  <div class="col-12">
-                    <label for="enquiry-event-type" class="form-label">Event Type <span class="orange">*</span></label>
-                    <select class="form-select" id="enquiry-event-type" required>
-                      <option value="">Select event type</option>
-                      <option value="birthday">Birthday</option>
-                      <option value="engagement">Engagement</option>
-                      <option value="corporate">Corporate</option>
-                      <option value="other">Other</option>
-                    </select>
-                    <div class="invalid-feedback" id="enquiry-event-type-error"></div>
-                  </div>
-
-                  <div class="col-12">
-                    <label for="enquiry-description" class="form-label">Tell us about your enquiry <span
-                        class="orange">*</span></label>
-                    <textarea class="form-control" id="enquiry-description" rows="4" maxlength="500"
-                      required></textarea>
-                    <div class="form-text text-white-50">
-                      <span id="enquiry-description-count">0</span>/500 characters
-                    </div>
-                    <div class="invalid-feedback" id="enquiry-description-error"></div>
-                  </div>
-
-                  <div class="col-12">
-                    <button type="submit" class="btn btn-lg orange-bg text-white px-xl-5 py-lg-3 py-xxl-3"
-                      id="enquiry-submit-btn">
-                      <span id="enquiry-submit-text">SUBMIT</span>
-                      <span id="enquiry-loading" class="d-none">
-                        <span class="spinner-border spinner-border-sm me-2" role="status"></span>
-                        Sending...
-                      </span>
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </div>
+    <div class="tab-pane fade show active" id="issue-form" role="tabpanel">
+      <form class="fs-6" id="issue-form-element" novalidate>
+        <div class="row g-3">
+          <div class="col-12">
+            <label for="issue-name" class="form-label">Full Name <span class="orange">*</span></label>
+            <input type="text" class="form-control" id="issue-name" data-validation="name" required>
+            <div class="invalid-feedback" id="issue-name-error"></div>
           </div>
+
+          <div class="col-12">
+            <fieldset >
+              <legend class="form-label">Preferred Contact Method <span class="orange">*</span></legend>
+             <div class="d-flex gap-2">
+               <div class="form-check">
+                <input class="form-check-input fs-5" type="radio" name="issue-contact-method"
+                  id="issue-email-contact" value="email" required checked>
+                <label class="form-check-label" for="issue-email-contact">Email</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input fs-5" type="radio" name="issue-contact-method"
+                  id="issue-phone-contact" value="phone" required>
+                <label class="form-check-label" for="issue-phone-contact">Phone</label>
+              </div>
+             </div>
+            </fieldset>
+            <div class="invalid-feedback" id="issue-contact-method-error"></div>
+          </div>
+
+          <div class="col-12" id="issue-email-field">
+            <label for="issue-email" class="form-label">Email Address <span class="orange">*</span></label>
+            <input type="email" class="form-control" id="issue-email" data-validation="email">
+            <div class="invalid-feedback" id="issue-email-error"></div>
+          </div>
+
+          <div class="col-12 d-none" id="issue-phone-field">
+            <label for="issue-phone" class="form-label">Phone Number <span class="orange">*</span></label>
+            <input type="tel" class="form-control" id="issue-phone" data-validation="phone">
+            <div class="invalid-feedback" id="issue-phone-error"></div>
+          </div>
+
+          <div class="col-12">
+            <label for="issue-booking-details" class="form-label">Booking Details <span
+                class="orange">*</span></label>
+            <input type="text" class="form-control" id="issue-booking-details"
+              placeholder="e.g., Table for 4, Confirmation #ABC123" required>
+            <div class="invalid-feedback" id="issue-booking-details-error"></div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="issue-booking-date" class="form-label">Booking Date <span
+                class="orange">*</span></label>
+            <input type="date" class="form-control" id="issue-booking-date" data-validation="date" required>
+            <div class="invalid-feedback" id="issue-booking-date-error"></div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="issue-booking-time" class="form-label">Booking Time <span
+                class="orange">*</span></label>
+            <select class="form-select" id="issue-booking-time" required>
+              <option value="">Select time</option>
+              <option value="17:00">5:00 PM</option>
+              <option value="17:30">5:30 PM</option>
+              <option value="18:00">6:00 PM</option>
+              <option value="18:30">6:30 PM</option>
+              <option value="19:00">7:00 PM</option>
+              <option value="19:30">7:30 PM</option>
+              <option value="20:00">8:00 PM</option>
+              <option value="20:30">8:30 PM</option>
+              <option value="21:00">9:00 PM</option>
+              <option value="21:30">9:30 PM</option>
+              <option value="22:00">10:00 PM</option>
+            </select>
+            <div class="invalid-feedback" id="issue-booking-time-error"></div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="issue-walk-in-time" class="form-label">Walk-in Time</label>
+            <input type="time" class="form-control" id="issue-walk-in-time">
+          </div>
+
+          <div class="col-md-6">
+            <label for="issue-walk-out-time" class="form-label">Walk-out Time</label>
+            <input type="time" class="form-control" id="issue-walk-out-time">
+          </div>
+
+          <div class="col-12">
+            <label for="issue-description" class="form-label">Issue Description <span
+                class="orange">*</span></label>
+            <textarea class="form-control" id="issue-description" rows="4" maxlength="500" required></textarea>
+            <div class="form-text text-white-50">
+              <span id="issue-description-count">0</span>/500 characters
+            </div>
+            <div class="invalid-feedback" id="issue-description-error"></div>
+          </div>
+
+          <div class="col-12">
+            <button type="submit" class="btn btn-lg orange-bg text-white px-xl-5 py-lg-3 py-xxl-3"
+              id="issue-submit-btn">
+              <span id="issue-submit-text">SUBMIT</span>
+              <span id="issue-loading" class="d-none">
+                <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                Sending...
+              </span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="tab-pane fade" id="enquiry-form" role="tabpanel">
+      <form class="fs-6" id="enquiry-form-element" novalidate>
+        <div class="row g-3">
+          <div class="col-12">
+            <label for="enquiry-name" class="form-label">Full Name <span class="orange">*</span></label>
+            <input type="text" class="form-control" id="enquiry-name" data-validation="name" required>
+            <div class="invalid-feedback" id="enquiry-name-error"></div>
+          </div>
+
+          <div class="col-12">
+            <fieldset >
+              <legend class="form-label">Preferred Contact Method <span class="orange">*</span></legend>
+              <div class="d-flex gap-2">
+ <div class="form-check">
+                <input class="form-check-input fs-5" type="radio" name="enquiry-contact-method"
+                  id="enquiry-email-contact" value="email" required checked>
+                <label class="form-check-label" for="enquiry-email-contact">Email</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input fs-5" type="radio" name="enquiry-contact-method"
+                  id="enquiry-phone-contact" value="phone" required>
+                <label class="form-check-label" for="enquiry-phone-contact">Phone</label>
+              </div>
+              </div>
+             
+            </fieldset>
+            <div class="invalid-feedback" id="enquiry-contact-method-error"></div>
+          </div>
+
+          <div class="col-12" id="enquiry-email-field">
+            <label for="enquiry-email" class="form-label">Email Address <span class="orange">*</span></label>
+            <input type="email" class="form-control" id="enquiry-email" data-validation="email">
+            <div class="invalid-feedback" id="enquiry-email-error"></div>
+          </div>
+
+          <div class="col-12 d-none" id="enquiry-phone-field">
+            <label for="enquiry-phone" class="form-label">Phone Number <span class="orange">*</span></label>
+            <input type="tel" class="form-control" id="enquiry-phone" data-validation="phone">
+            <div class="invalid-feedback" id="enquiry-phone-error"></div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="enquiry-date" class="form-label">Preferred Date <span class="orange">*</span></label>
+            <input type="date" class="form-control" id="enquiry-date" data-validation="date" required>
+            <div class="invalid-feedback" id="enquiry-date-error"></div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="enquiry-time" class="form-label">Preferred Time <span class="orange">*</span></label>
+            <select class="form-select" id="enquiry-time" required>
+              <option value="">Select time</option>
+              <option value="17:00">5:00 PM</option>
+              <option value="17:30">5:30 PM</option>
+              <option value="18:00">6:00 PM</option>
+              <option value="18:30">6:30 PM</option>
+              <option value="19:00">7:00 PM</option>
+              <option value="19:30">7:30 PM</option>
+              <option value="20:00">8:00 PM</option>
+              <option value="20:30">8:30 PM</option>
+              <option value="21:00">9:00 PM</option>
+              <option value="21:30">9:30 PM</option>
+              <option value="22:00">10:00 PM</option>
+            </select>
+            <div class="invalid-feedback" id="enquiry-time-error"></div>
+          </div>
+
+          <div class="col-12">
+            <label for="enquiry-people" class="form-label">Number of <span class="orange">*</span></label>
+            <select class="form-select" id="enquiry-people" required>
+              <option value="">Select number</option>
+              <option value="1">1 person</option>
+              <option value="2">2 people</option>
+              <option value="3">3 people</option>
+              <option value="4">4 people</option>
+              <option value="5">5 people</option>
+              <option value="6">6 people</option>
+              <option value="7">7 people</option>
+              <option value="8">8 people</option>
+              <option value="9+">9+ people</option>
+            </select>
+            <div class="invalid-feedback" id="enquiry-people-error"></div>
+          </div>
+
+          <div class="col-12">
+            <label for="enquiry-event-type" class="form-label">Event Type <span class="orange">*</span></label>
+            <select class="form-select" id="enquiry-event-type" required>
+              <option value="">Select event type</option>
+              <option value="birthday">Birthday</option>
+              <option value="engagement">Engagement</option>
+              <option value="corporate">Corporate</option>
+              <option value="other">Other</option>
+            </select>
+            <div class="invalid-feedback" id="enquiry-event-type-error"></div>
+          </div>
+
+          <div class="col-12">
+            <label for="enquiry-description" class="form-label">Tell us about your enquiry <span
+                class="orange">*</span></label>
+            <textarea class="form-control" id="enquiry-description" rows="4" maxlength="500" required></textarea>
+            <div class="form-text text-white-50">
+              <span id="enquiry-description-count">0</span>/500 characters
+            </div>
+            <div class="invalid-feedback" id="enquiry-description-error"></div>
+          </div>
+
+          <div class="col-12">
+            <button type="submit" class="btn btn-lg orange-bg text-white px-xl-5 py-lg-3 py-xxl-3"
+              id="enquiry-submit-btn">
+              <span id="enquiry-submit-text">SUBMIT</span>
+              <span id="enquiry-loading" class="d-none">
+                <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                Sending...
+              </span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
         </div>
       </div>
     </div>
