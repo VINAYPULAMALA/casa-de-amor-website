@@ -667,12 +667,5 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Navbar scroll effect
-window.onscroll = function () {
-  var navbar = document.querySelector('.navbar');
-  if (window.scrollY > 50) {
-    navbar.classList.add('navbar-fixed');
-  } else {
-    navbar.classList.remove('navbar-fixed');
-  }
-};
+// Note: Navbar scroll effect is handled by navbar.js
+// This file focuses only on contact form functionality
