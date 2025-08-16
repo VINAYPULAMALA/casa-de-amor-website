@@ -129,21 +129,23 @@
         <!-- Right Section - Forms -->
         <div class="col-lg-7">
           <!-- Tab Navigation -->
-          <ul class="nav nav-pills nav-fill gap-2 p-1 small rounded-5 border shadow-sm" id="pills-tab" role="tablist">
-            <li class="nav-item round-5" role="presentation">
-              <button class="orange nav-link  rounded-5 active" id="home-tab" data-bs-toggle="pill"
-                data-bs-target="#home" type="button" role="tab">REPORT AN ISSUE</button>
+          <ul class="nav nav-pills nav-fill mb-4" id="contact-tabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active orange-bg text-white fw-bold" id="issue-tab" 
+                      role="tab" aria-controls="issue-form" 
+                      aria-selected="true">REPORT AN ISSUE</button>
             </li>
-            <li class="nav-item round-5" role="presentation">
-              <button class="orange nav-link rounded-5" id="profile-tab" data-bs-toggle="pill" data-bs-target="#profile"
-                type="button" role="tab">MAKE AN ENQUIRY</button>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link bg-white text-dark fw-bold" id="enquiry-tab" 
+                      role="tab" aria-controls="enquiry-form" 
+                      aria-selected="false">MAKE AN ENQUIRY</button>
             </li>
           </ul>
 
           <!-- Tab Content -->
           <div class="tab-content" id="contact-tab-content">
             <!-- Issue Form -->
-            <div class="tab-pane fade show active" id="home" role="tabpanel">
+            <div class="tab-pane fade show active" id="issue-form" role="tabpanel" aria-labelledby="issue-tab">
               <form class="fs-6" id="issue-form-element" novalidate>
                 <div class="row g-3">
                   <div class="col-12">
@@ -151,18 +153,16 @@
                     <input type="text" class="form-control" id="issue-name" data-validation="name" required>
                     <div class="invalid-feedback" id="issue-name-error"></div>
                   </div>
-
+                  
                   <div class="col-12">
                     <fieldset class="mb-3">
                       <legend class="form-label">Preferred Contact Method <span class="orange">*</span></legend>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="issue-contact-method"
-                          id="issue-email-contact" value="email" required checked>
+                        <input class="form-check-input" type="radio" name="issue-contact-method" id="issue-email-contact" value="email" required checked>
                         <label class="form-check-label" for="issue-email-contact">Email</label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="issue-contact-method"
-                          id="issue-phone-contact" value="phone" required>
+                        <input class="form-check-input" type="radio" name="issue-contact-method" id="issue-phone-contact" value="phone" required>
                         <label class="form-check-label" for="issue-phone-contact">Phone</label>
                       </div>
                     </fieldset>
@@ -182,23 +182,19 @@
                   </div>
 
                   <div class="col-12">
-                    <label for="issue-booking-details" class="form-label">Booking Details <span
-                        class="orange">*</span></label>
-                    <input type="text" class="form-control" id="issue-booking-details"
-                      placeholder="e.g., Table for 4, Confirmation #ABC123" required>
+                    <label for="issue-booking-details" class="form-label">Booking Details <span class="orange">*</span></label>
+                    <input type="text" class="form-control" id="issue-booking-details" placeholder="e.g., Table for 4, Confirmation #ABC123" required>
                     <div class="invalid-feedback" id="issue-booking-details-error"></div>
                   </div>
 
                   <div class="col-md-6">
-                    <label for="issue-booking-date" class="form-label">Booking Date <span
-                        class="orange">*</span></label>
+                    <label for="issue-booking-date" class="form-label">Booking Date <span class="orange">*</span></label>
                     <input type="date" class="form-control" id="issue-booking-date" data-validation="date" required>
                     <div class="invalid-feedback" id="issue-booking-date-error"></div>
                   </div>
 
                   <div class="col-md-6">
-                    <label for="issue-booking-time" class="form-label">Booking Time <span
-                        class="orange">*</span></label>
+                    <label for="issue-booking-time" class="form-label">Booking Time <span class="orange">*</span></label>
                     <select class="form-select" id="issue-booking-time" required>
                       <option value="">Select time</option>
                       <option value="17:00">5:00 PM</option>
@@ -227,8 +223,7 @@
                   </div>
 
                   <div class="col-12">
-                    <label for="issue-description" class="form-label">Issue Description <span
-                        class="orange">*</span></label>
+                    <label for="issue-description" class="form-label">Issue Description <span class="orange">*</span></label>
                     <textarea class="form-control" id="issue-description" rows="4" maxlength="500" required></textarea>
                     <div class="form-text text-white-50">
                       <span id="issue-description-count">0</span>/500 characters
@@ -237,8 +232,7 @@
                   </div>
 
                   <div class="col-12">
-                    <button type="submit" class="btn btn-lg orange-bg text-white px-xl-5 py-lg-3 py-xxl-3"
-                      id="issue-submit-btn">
+                    <button type="submit" class="btn btn-lg orange-bg text-white px-xl-5 py-lg-3 py-xxl-3" id="issue-submit-btn">
                       <span id="issue-submit-text">SUBMIT</span>
                       <span id="issue-loading" class="d-none">
                         <span class="spinner-border spinner-border-sm me-2" role="status"></span>
@@ -249,8 +243,9 @@
                 </div>
               </form>
             </div>
+
             <!-- Enquiry Form -->
-             <div class="tab-pane fade" id="profile" role="tabpanel">
+            <div class="tab-pane fade" id="enquiry-form" role="tabpanel" aria-labelledby="enquiry-tab">
               <form class="fs-6" id="enquiry-form-element" novalidate>
                 <div class="row g-3">
                   <div class="col-12">
@@ -263,13 +258,11 @@
                     <fieldset class="mb-3">
                       <legend class="form-label">Preferred Contact Method <span class="orange">*</span></legend>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="enquiry-contact-method"
-                          id="enquiry-email-contact" value="email" required checked>
+                        <input class="form-check-input" type="radio" name="enquiry-contact-method" id="enquiry-email-contact" value="email" required checked>
                         <label class="form-check-label" for="enquiry-email-contact">Email</label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="enquiry-contact-method"
-                          id="enquiry-phone-contact" value="phone" required>
+                        <input class="form-check-input" type="radio" name="enquiry-contact-method" id="enquiry-phone-contact" value="phone" required>
                         <label class="form-check-label" for="enquiry-phone-contact">Phone</label>
                       </div>
                     </fieldset>
@@ -343,10 +336,8 @@
                   </div>
 
                   <div class="col-12">
-                    <label for="enquiry-description" class="form-label">Tell us about your enquiry <span
-                        class="orange">*</span></label>
-                    <textarea class="form-control" id="enquiry-description" rows="4" maxlength="500"
-                      required></textarea>
+                    <label for="enquiry-description" class="form-label">Tell us about your enquiry <span class="orange">*</span></label>
+                    <textarea class="form-control" id="enquiry-description" rows="4" maxlength="500" required></textarea>
                     <div class="form-text text-white-50">
                       <span id="enquiry-description-count">0</span>/500 characters
                     </div>
@@ -354,8 +345,7 @@
                   </div>
 
                   <div class="col-12">
-                    <button type="submit" class="btn btn-lg orange-bg text-white px-xl-5 py-lg-3 py-xxl-3"
-                      id="enquiry-submit-btn">
+                    <button type="submit" class="btn btn-lg orange-bg text-white px-xl-5 py-lg-3 py-xxl-3" id="enquiry-submit-btn">
                       <span id="enquiry-submit-text">SUBMIT</span>
                       <span id="enquiry-loading" class="d-none">
                         <span class="spinner-border spinner-border-sm me-2" role="status"></span>
